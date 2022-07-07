@@ -23,14 +23,12 @@ public class ContactBook {
 	   	 for(String phonebook:cont)
 	   		 System.out.println(phonebook);
 	   	 
-	   	 System.out.println("Enter Name to Edit in Address Book");
+	   	 
 	   	 System.out.println();
-	   	 String newf="Sachin";
-	   	 String newl="Tendulkar";
 	   	 
 	   	 
-	   	 cont.set(0,"FirstName: "+newf);
-	   	cont.set(1,"LastName: " +newl);
+	   	 cont.remove(0);
+    	cont.remove(0);
 	   	 
 	   	 
 	   	 for(String phonebook:cont)
