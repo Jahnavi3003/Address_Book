@@ -44,14 +44,38 @@ public class NewContact {
 
 			ContactBook contact = new ContactBook(first, last, add, city, state, zip, phone, email);
 
-			addressBookNameList.stream().filter(find -> find.userInputBookName.contains(enter))
-					.forEach(addressBook -> addressBook.contact.add(contact));
-
-			System.out.println("\nContact added Successfully.\n");
+			if (duplicateCheck(enter , first)) {
+				addressBookNameList.stream().filter(find -> find.userInputBookName.contains(enter))
+						.forEach(addressBook -> addressBook.contact.add(contact));
+	
+				System.out.println("\nContact added Successfully.\n");
+			}
+			else {
+				System.out.println("\nYou have already this person in your contact list.\n");
+				return;
+			}
 
 		}
 	}
 
+	public boolean duplicateCheck(String enter , String first) {
+		for (AddressBookList addressBook : addressBookNameList) {
+			if (enter.equals(addressBook.userInputBookName)) {
+				for (ContactBook person : addressBook.contact) {
+					if (first.equals(person.getFirstName())) {
+						return false;
+					}
+					else {
+						continue;
+					}
+				}
+			}
+			else {
+				continue;
+			}
+		}
+		return true;
+	}
 
 	public void editContact() {
 
