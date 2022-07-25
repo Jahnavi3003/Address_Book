@@ -8,6 +8,18 @@ class ContactBook {
     private String firstName, lastName, address, city, state, email;
     private int zip;
     private long phoneNumber;
+    
+    public ContactBook(String firstName, String lastName, String address, String city, String state, int zip,
+			long phone_number, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
 
     public String getFirstName() {
         return firstName;
@@ -74,7 +86,7 @@ class ContactBook {
     }
 
     public String toString() {
-        return ("First name: " + firstName + "\n Last name: " + lastName + "\n Address: " + address + "\n city: " + city
-                + "\n state: " +state + "\n email: " + email + "\n zip: " + zip + "\n phone number:" + phoneNumber + "");
+        return ("First name: " + getFirstName() + "\n Last name: " + getLastName() + "\n Address: " + getAddress() + "\n city: " + getCity()
+                + "\n state: " + getState() + "\n email: " + getEmail() + "\n zip: " + getZip() + "\n phone number:" + getPhoneNumber() + "");
     }
 }
