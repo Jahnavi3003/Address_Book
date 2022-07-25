@@ -235,6 +235,38 @@ public class NewContact {
 	}
 
 	
+public void searchPersonByCity() {
+		
+		System.out.print("\nEnter city to search person by city name :- ");
+		String searchCity = input.next();
+		
+		for (AddressBookList addressBook : addressBookNameList) {
+			for (ContactBook person : addressBook.contact) {
+				if (searchCity.equals(person.getCity())) {
+					System.out.println("Persons who are in same city " + "(" + searchCity + ") :- " + person.getFirstName());
+				} else {
+					continue;
+				}
+			}
+		}
+	}
+	
+	public void searchPersonByState() {
+		
+		System.out.print("\nEnter State to search person by city name :- ");
+		String searchState = input.next();
+		
+		for (AddressBookList addressBook : addressBookNameList) {
+			for (ContactBook person : addressBook.contact) {
+				if (searchState.equals(person.getState())) {
+					System.out.println("Persons who are in same state " + "(" + searchState + ") :- " + person.getFirstName());
+				} else {
+					continue;
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("--------------------Welcome To Address Book Program-----------------------");
 		NewContact obj = new NewContact();
