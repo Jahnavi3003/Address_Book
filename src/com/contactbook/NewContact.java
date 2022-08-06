@@ -281,6 +281,33 @@ public void searchPersonByCity() {
 		System.out.println(" ");
 	}
 	
+	public void countByCity() {
+		System.out.println("Enter city name to count :- ");
+		String countCity = input.next();
+		int count = 0;
+		for (AddressBookList addressBook : addressBookNameList) {
+			for (ContactBook person : addressBook.contact) {
+				if(countCity.equals(person.getCity())) {
+					count++;
+				}
+			}
+		}
+		System.out.println("\nNumber of persons in same city " + "(" + countCity + ") :- " + count + ".\n");
+	}
+	
+	public void countByState() {
+		System.out.println("Enter state name to count :- ");
+		String countState = input.next();
+		int count = 0;
+		for (AddressBookList addressBook : addressBookNameList) {
+			for (ContactBook person : addressBook.contact) {
+				if(countState.equals(person.getState())) {
+					count++;
+				}
+			}
+		}
+		System.out.println("\nNumber of persons in same state " + "(" + countState + ") :- " + count + ".\n");
+	}
 	public static void main(String[] args) {
 		System.out.println("--------------------Welcome To Address Book Program-----------------------");
 		NewContact obj = new NewContact();

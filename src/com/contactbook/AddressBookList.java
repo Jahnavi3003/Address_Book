@@ -19,6 +19,13 @@ public class AddressBookList {
 		this.userInputBookName = userInputBookName;
 	}
 
+	public ArrayList<ContactBook> getContact() {
+		return contact;
+	}
+
+	public void setContact(ArrayList<ContactBook> contact) {
+		this.contact = contact;
+	}
 	@Override
 	public String toString() {
 		return "Address Book name :- " + userInputBookName + "\n" + "Contacts :- " + contact;
