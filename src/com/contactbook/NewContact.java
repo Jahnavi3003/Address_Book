@@ -308,6 +308,32 @@ public void searchPersonByCity() {
 		}
 		System.out.println("\nNumber of persons in same state " + "(" + countState + ") :- " + count + ".\n");
 	}
+	
+	public void sortByName() {
+		AddressBookList addressBook = findAddressBook();
+		addressBook.contact.stream()
+		.sorted((contact1, contact2) -> contact1.getFirstName()
+		.compareTo(contact2.getFirstName()))
+		.forEach(contact -> System.out.println(contact));
+	}
+	
+	/*** Finding address Book ***/
+	public AddressBookList findAddressBook() {
+		if(addressBookNameList.isEmpty()) {
+			System.out.println("Please create an address book first.");
+			return null;
+		}
+		System.out.println("Please enter the name of the address book :- ");
+		String getAddressBook = input.next();
+		
+		for (AddressBookList addressBook : addressBookNameList) {
+			if(getAddressBook.equals(addressBook.userInputBookName)) {
+				return addressBook;											// returning addressBook if found in the address book list.
+			}
+		}
+		System.out.println("Address Book does not exist.");
+		return null;
+	}
 	public static void main(String[] args) {
 		System.out.println("--------------------Welcome To Address Book Program-----------------------");
 		NewContact obj = new NewContact();
@@ -344,10 +370,25 @@ public void searchPersonByCity() {
 				case 5:
 					obj.displayAddressBook();
 					break;
+				case 6:
+					obj.searchPersonByCity();
+					break;
+				case 7:
+					obj.searchPersonByState();
+					break;
+				case 8:
+					obj.countByCity();
+					break;
+				case 9:
+					obj.countByState();
+					break;
+				case 10:
+					obj.sortByName();
+					break;
 				default:
 					System.out.println("Enter valid choice from the list...");
 				}
-				if (userChoice == 6) {
+				if (userChoice == 11) {
 					System.out.println("Successfully exited from the Address Book Application.");
 					break;
 				}
