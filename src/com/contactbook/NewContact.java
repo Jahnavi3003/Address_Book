@@ -328,11 +328,44 @@ public void searchPersonByCity() {
 		
 		for (AddressBookList addressBook : addressBookNameList) {
 			if(getAddressBook.equals(addressBook.userInputBookName)) {
-				return addressBook;											// returning addressBook if found in the address book list.
+				return addressBook;											
 			}
 		}
 		System.out.println("Address Book does not exist.");
 		return null;
+	}
+	
+public void sortByName_City_State_zip() {
+		
+		AddressBookList addressBook = findAddressBook();
+
+		System.out.println("Please select any of the below options." + "\n" + "1. To Sort By Name." + "\n"
+				+ "2. To Sort By City." + "\n" + "3. To Sort By State." + "\n" + "4. To Sort By Zip Code. :- ");
+		int choice = input.nextInt();
+		switch (choice) {
+		case 1:
+			addressBook.contact.stream()
+					.sorted((contact1, contact2) -> contact1.getFirstName().compareTo(contact2.getFirstName()))
+					.forEach(contact -> System.out.println(contact));
+			break;
+		case 2:
+			addressBook.contact.stream()
+					.sorted((contact1, contact2) -> contact1.getCity().compareTo(contact2.getCity()))
+					.forEach(contact -> System.out.println(contact));
+			break;
+		case 3:
+			addressBook.contact.stream()
+					.sorted((contact1, contact2) -> contact1.getState().compareTo(contact2.getState()))
+					.forEach(contact -> System.out.println(contact));
+			break;
+		case 4:
+			addressBook.contact.stream()
+			.sorted((contact1, contact2) -> Integer.valueOf(contact1.getZip()).compareTo(contact2.getZip()))
+					.forEach(contact -> System.out.println(contact));
+			break;
+		default:
+			System.out.println("Please choose valid option.");
+		}
 	}
 	public static void main(String[] args) {
 		System.out.println("--------------------Welcome To Address Book Program-----------------------");
@@ -350,6 +383,11 @@ public void searchPersonByCity() {
 				System.out.println("4.Add new address book.");
 				System.out.println("5.Display Address Book");
 				System.out.println("6.Exit from the Application");
+				System.out.println("7.Search person by State.");
+				System.out.println("8.Count By City.");
+				System.out.println("9.count By State.");
+				System.out.println("10.Sort By Name/City/State/Zip-Code.");
+				System.out.println("11.Exit from the Application.");
 
 				System.out.println("\nEnter your choice :- ");
 				int userChoice = input.nextInt();
